@@ -7,11 +7,17 @@
 void FPunal_ShadersModule::StartupModule()
 {
 	// This code will execute after your module is loaded into memory; the exact timing is specified in the .uplugin file per-module
-	FString ShaderDir = FPaths::Combine(FPaths::ProjectPluginsDir(), TEXT("Punal_Shaders/Shaders"));
-	AddShaderSourceDirectoryMapping("/Plugin/Punal_Shaders", ShaderDir);
+	FString ShaderDir = FPaths::Combine(FPaths::ProjectPluginsDir(), TEXT("Punal_Shaders/Shaders"));	
+	if (IFileManager::Get().DirectoryExists(*ShaderDir))
+	{
+		AddShaderSourceDirectoryMapping("/Plugin/Punal_Shaders", ShaderDir);
+	}
 
 	FString ProjectShaderDir = FPaths::Combine(FPaths::ProjectDir(), TEXT("/Shaders"));
-	AddShaderSourceDirectoryMapping("/Project/Shaders", ProjectShaderDir);
+	if (IFileManager::Get().DirectoryExists(*ProjectShaderDir))
+	{
+		AddShaderSourceDirectoryMapping("/Project/Shaders", ProjectShaderDir);
+	}
 }
 
 void FPunal_ShadersModule::ShutdownModule()
