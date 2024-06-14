@@ -1,0 +1,13 @@
+#pragma once
+
+struct AddFunction
+{
+	float3 TestFunction(float3 A, float3 B, float3 C)
+	{
+		//Add Code
+		return A+B+C;
+	}
+};
+
+AddFunction material;
+return material.TestFunction(Alpha,Beta,Gamma);

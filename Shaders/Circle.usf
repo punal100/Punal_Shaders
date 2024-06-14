@@ -1,0 +1,13 @@
+float3 CircleMask = float3(0.,0.,0.);
+
+if (length((Origin - UV)) < Size)
+{
+	//CircleMask = float3(1.,1.,1.);	
+	CircleMask = Inner_Colour;
+}
+else
+{
+	CircleMask = Outer_Colour;
+}
+
+return CircleMask;// * Colour;
