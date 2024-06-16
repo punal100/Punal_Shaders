@@ -6,6 +6,7 @@ struct AddFunction
 	{
 		//Add Code
 		return A+B+C;
+		//return A;
 	}
 };
 
